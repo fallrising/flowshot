@@ -3,7 +3,7 @@ document_type: task
 id: T04
 node_id: N00
 title: Implement and freeze the contract generator
-status: todo
+status: done
 depends_on:
   - T02
 derived_from:
@@ -79,7 +79,6 @@ ordering, absolute build paths, or adapter implementation.
 ## Handoff
 
 - Changed files: core contracts, xtask generator, generated TS, frozen lock.
-- Evidence: golden, deterministic, and drift-check output.
+- Evidence: `evidence/T04-contract-generator.md`.
 - Risks: adapter integration is not yet proven.
 - Next task: T05 and T06.
-

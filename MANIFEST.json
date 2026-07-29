@@ -32,8 +32,8 @@
     },
     {
       "path": "contracts/locks/N00.json",
-      "sha256": "f2a51c5c7d65f6ee4441430381159fbcfce6e37b5fe7cb882d400bb7e2b75493",
-      "bytes": 494
+      "sha256": "018ea449f42c1f0569c3064e75736389f5eb7932eb43cfa2382db4c3a138d1cd",
+      "bytes": 667
     },
     {
       "path": "docs/.DS_Store",
@@ -207,8 +207,8 @@
     },
     {
       "path": "docs/tasks/N00/T04-contract-source-and-generator.md",
-      "sha256": "93f7e489c5456843ab343ad55d62fccd6b85813640b5580b393734960ee5c870",
-      "bytes": 2475
+      "sha256": "e0be475e4a2fe8c7c7a543c81d8a1ae1f62129668f7e9714c746c01655b4740b",
+      "bytes": 2465
     },
     {
       "path": "docs/tasks/N00/T05-build-info-vertical-slice.md",
@@ -244,6 +244,11 @@
       "path": "docs/tasks/N00/evidence/T03-react-tauri.md",
       "sha256": "feada75878a501052744c457a0039883e0c01d957319110d28eb8177ea4bfe3f",
       "bytes": 2735
+    },
+    {
+      "path": "docs/tasks/N00/evidence/T04-contract-generator.md",
+      "sha256": "54c54bb39a67f6d11013c057b6eab3dcd3806f6e8fc7922309ccb189b3ae5111",
+      "bytes": 2606
     },
     {
       "path": "docs/tasks/README.md",

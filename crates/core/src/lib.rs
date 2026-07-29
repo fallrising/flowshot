@@ -1,5 +1,7 @@
 //! Platform-neutral domain code for Flowshot.
 
+pub mod contracts;
+
 /// Returns the stable application display name.
 #[must_use]
 pub const fn application_name() -> &'static str {
