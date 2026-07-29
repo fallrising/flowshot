@@ -1,3 +1,1 @@
-mod build_info;
-
-pub use build_info::get_build_info;
+pub(crate) mod build_info;
