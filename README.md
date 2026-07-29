@@ -1,5 +1,7 @@
 # Flowshot
 
+[![CI](https://github.com/fallrising/flowshot/actions/workflows/ci.yml/badge.svg)](https://github.com/fallrising/flowshot/actions/workflows/ci.yml)
+
 Flowshot is the repository for **Markdown Annotator**, a local-first,
 read-only desktop application for reading Markdown and keeping annotations
 attached as documents evolve.
@@ -40,9 +42,10 @@ gates.
 
 ## Current status
 
-The project is at the specification baseline. Production implementation starts
-with the N00 foundation node: repository structure, CI, contract generation,
-dependency boundaries, and the first end-to-end command.
+The specification baseline is complete and N00 foundation development is in
+progress. The repository now contains the Rust workspace, React/Tauri shell,
+Rust-authored contract generator, frozen `get_build_info` contract, typed
+command-to-UI slice, and executable core dependency boundary.
 
 The documentation baseline is available in:
 
@@ -52,8 +55,34 @@ The documentation baseline is available in:
 - [`docs/protocols/`](docs/protocols/): execution and document-change rules
 - [`docs/templates/`](docs/templates/): plan, task, test, ADR, and verification templates
 
-Build instructions will be added only after N00 establishes and verifies the
-actual toolchain.
+## Development
+
+Use Rust 1.97.1 and Node.js 24.18.0. Before launching the desktop app, install
+the official [Tauri platform prerequisites](https://v2.tauri.app/start/prerequisites/).
+The primary macOS target also requires the Xcode command-line tools.
+
+A new checkout needs five commands:
+
+```bash
+git clone https://github.com/fallrising/flowshot.git
+cd flowshot
+make bootstrap
+make ci
+npm run tauri -- dev
+```
+
+`make ci` runs SDD integrity, contract drift/determinism, dependency boundaries,
+Rust format/test/lint, and frontend lint/test/build. It also compiles, tests,
+and builds the native Tauri adapter when the host prerequisites are detected;
+otherwise it prints an explicit native-gate skip. GitHub Actions prepares those
+dependencies and runs the same command on Ubuntu 24.04, macOS 15 Apple Silicon,
+and macOS 15 Intel.
+
+Focused commands:
+
+- `make gen-contracts` regenerates TypeScript from Rust authority.
+- `make check-contracts` checks generated output and the frozen lock.
+- `make native-ci` requires a prepared Tauri host and never skips native work.
 
 ## Engineering approach
 

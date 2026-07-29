@@ -1,0 +1,93 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CARGO_TERM_COLOR: always
+  FLOWSHOT_GIT_SHA: ${{ github.sha }}
+  RUST_BACKTRACE: "1"
+
+jobs:
+  linux:
+    name: Ubuntu 24.04
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v6.0.2
+
+      - name: Install Tauri system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes \
+            build-essential \
+            curl \
+            file \
+            libayatana-appindicator3-dev \
+            librsvg2-dev \
+            libssl-dev \
+            libwebkit2gtk-4.1-dev \
+            libxdo-dev \
+            pkg-config \
+            wget
+
+      - name: Install Node
+        uses: actions/setup-node@v6.4.0
+        with:
+          node-version: 24.18.0
+          cache: npm
+
+      - name: Install Rust
+        run: |
+          rustup toolchain install 1.97.1 --profile minimal --component clippy --component rustfmt
+          rustup default 1.97.1
+
+      - name: Bootstrap locked dependencies
+        run: make bootstrap
+
+      - name: Run repository gate
+        run: make ci
+
+  macos:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: macOS 15 Apple Silicon
+            runner: macos-15
+          - name: macOS 15 Intel
+            runner: macos-15-intel
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v6.0.2
+
+      - name: Install Node
+        uses: actions/setup-node@v6.4.0
+        with:
+          node-version: 24.18.0
+          cache: npm
+
+      - name: Install Rust
+        run: |
+          rustup toolchain install 1.97.1 --profile minimal --component clippy --component rustfmt
+          rustup default 1.97.1
+
+      - name: Bootstrap locked dependencies
+        run: make bootstrap
+
+      - name: Run repository gate
+        run: make ci
