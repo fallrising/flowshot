@@ -44,9 +44,16 @@ The project is at the specification baseline. Production implementation starts
 with the N00 foundation node: repository structure, CI, contract generation,
 dependency boundaries, and the first end-to-end command.
 
-The authoritative specification, executable node graph, protocols, and test
-templates will be committed as the next repository stage. Build instructions
-will be added only after N00 establishes and verifies the actual toolchain.
+The documentation baseline is available in:
+
+- [`SPEC.md`](SPEC.md): product, architecture, security, and data authority
+- [`docs/graph.yaml`](docs/graph.yaml): machine-readable implementation DAG
+- [`docs/nodes/`](docs/nodes/): independently executable SDD node specs
+- [`docs/protocols/`](docs/protocols/): execution and document-change rules
+- [`docs/templates/`](docs/templates/): plan, task, test, ADR, and verification templates
+
+Build instructions will be added only after N00 establishes and verifies the
+actual toolchain.
 
 ## Engineering approach
 
