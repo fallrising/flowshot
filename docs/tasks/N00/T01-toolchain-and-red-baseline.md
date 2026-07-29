@@ -3,7 +3,7 @@ document_type: task
 id: T01
 node_id: N00
 title: Establish toolchain and red baseline
-status: todo
+status: done
 depends_on: []
 derived_from:
   - 00-implementation-plan.md
@@ -72,8 +72,7 @@ launch claim.
 
 ## Handoff
 
-- Changed files: N00 evidence and plan status.
-- Evidence: version/platform command output.
+- Changed files: N00 evidence, task status, and local-tool ignore rule.
+- Evidence: `evidence/T01-toolchain.md`.
 - Risks: macOS launch remains a final verification gate.
 - Next task: T02 and T03.
-

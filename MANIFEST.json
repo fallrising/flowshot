@@ -192,8 +192,8 @@
     },
     {
       "path": "docs/tasks/N00/T01-toolchain-and-red-baseline.md",
-      "sha256": "366a5bfb480ac3ac74354e5a574842b38c51ad855a6ccad7f2be660437c67ed7",
-      "bytes": 2365
+      "sha256": "1c0cdcf8cfa6f1116e8e7a870861ebd31a70e7e082668bf08d1acf792a6673a2",
+      "bytes": 2385
     },
     {
       "path": "docs/tasks/N00/T02-scaffold-rust-workspace.md",
@@ -229,6 +229,11 @@
       "path": "docs/tasks/N00/T08-bootstrap-verification.md",
       "sha256": "6df76e9837c772797976b69c3c28b953b265762f44fd206d99d7f61285f9744b",
       "bytes": 2538
+    },
+    {
+      "path": "docs/tasks/N00/evidence/T01-toolchain.md",
+      "sha256": "4b2fc9197cc2930561296c1a4dc3144ea5c649e57a288315e4f8beb6dbd11ae6",
+      "bytes": 3104
     },
     {
       "path": "docs/tasks/README.md",

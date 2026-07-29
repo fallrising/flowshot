@@ -35,7 +35,7 @@ af39033597d8077fb5f3fbd7c089ec536c8f8f245c61eb1feeaae93eedeb31e8  docs/nodes/N09
 68ea55505a56eab982cb97a1c197b726e6366c87d33463de75d377fac424aaef  docs/reference/complete-sdd.md
 17652c931ccc39d69475aa28e030221dbd933aa40405f062cc86fdd8c883875c  docs/tasks/N00/00-implementation-plan.md
 b6c2a83e196b2970b7af130d383b5f2c486533f7d33c74a7d5ff1242068271ea  docs/tasks/N00/01-test-plan.md
-366a5bfb480ac3ac74354e5a574842b38c51ad855a6ccad7f2be660437c67ed7  docs/tasks/N00/T01-toolchain-and-red-baseline.md
+1c0cdcf8cfa6f1116e8e7a870861ebd31a70e7e082668bf08d1acf792a6673a2  docs/tasks/N00/T01-toolchain-and-red-baseline.md
 a41620f100376cea2ce57af96ec4fb64b01a4598da7f56878f89fa285981de85  docs/tasks/N00/T02-scaffold-rust-workspace.md
 aa7e4f9ff057f202413d0f9e938003b57d1e6232ce40cfa4efbf302df3407f19  docs/tasks/N00/T03-scaffold-react-tauri.md
 93f7e489c5456843ab343ad55d62fccd6b85813640b5580b393734960ee5c870  docs/tasks/N00/T04-contract-source-and-generator.md
@@ -43,6 +43,7 @@ aa7e4f9ff057f202413d0f9e938003b57d1e6232ce40cfa4efbf302df3407f19  docs/tasks/N00
 b027eaa117f199802c1f82b32b8d8f528d255297fbbf29ced4afcdee0d9de19b  docs/tasks/N00/T06-core-boundary-enforcement.md
 1d6bd1fb8d1e7db3615e8eb1873eb491a20afb40e564c6369f61c9c68f729271  docs/tasks/N00/T07-make-and-ci.md
 6df76e9837c772797976b69c3c28b953b265762f44fd206d99d7f61285f9744b  docs/tasks/N00/T08-bootstrap-verification.md
+4b2fc9197cc2930561296c1a4dc3144ea5c649e57a288315e4f8beb6dbd11ae6  docs/tasks/N00/evidence/T01-toolchain.md
 4f68848f6e7366d14d877bdd0056143a5f29ec1dfcc61e7e31693b2113eb7e8d  docs/tasks/README.md
 91bd749ee02695877e09f0aca69cfe04d2cfc68e25552d4c6321e5838022429d  docs/templates/adr.template.md
 5fc879d82adf4a2d2934e8a977520389fdb8be349fcf5843285050d70c8b428b  docs/templates/implementation-plan.template.md
