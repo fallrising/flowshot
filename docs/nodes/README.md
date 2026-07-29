@@ -2,7 +2,7 @@
 
 | ID | Milestone | Size | Depends | Status | Spec |
 |---|---|---:|---|---|---|
-| N00 | M0 | M | — | specifying | [專案骨架、CI 與 Contract Pipeline](N00-foundation-ci-contracts.md) |
+| N00 | M0 | M | — | blocked | [專案骨架、CI 與 Contract Pipeline](N00-foundation-ci-contracts.md) |
 | N01 | M0 | M | N00 | todo | [SQLite Schema、Migration 與 Repository](N01-sqlite-schema-migrations.md) |
 | N02 | M1 | M | N00, N01 | todo | [Workspace、PathGuard 與 Lazy File Tree](N02-workspace-lazy-tree.md) |
 | N03 | M1 | M | N00 | todo | [Deterministic Markdown Render Model](N03-markdown-render-model.md) |

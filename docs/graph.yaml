@@ -17,7 +17,7 @@ nodes:
     milestone: M0
     depends_on: []
     size: M
-    status: specifying
+    status: blocked
     spec: docs/nodes/N00-foundation-ci-contracts.md
     contract_lock: contracts/locks/N00.json
     verification: docs/verification/N00.md
