@@ -36,11 +36,6 @@
       "bytes": 667
     },
     {
-      "path": "docs/.DS_Store",
-      "sha256": "996d95ac92258f5e6186a412bd307d0b367ff9170858f76ec5314da84d944ec7",
-      "bytes": 6148
-    },
-    {
       "path": "docs/README.md",
       "sha256": "1fd8f3f5b0df40d01146c7ffb0b0b6366a058394bc1c6ad4b14a460cbc663637",
       "bytes": 963
@@ -312,8 +307,8 @@
     },
     {
       "path": "scripts/sdd.py",
-      "sha256": "62289f5f8f9c867c62a9eb303ab2e89d2f424f98e49de80f0ec9f34d376ecffb",
-      "bytes": 21010
+      "sha256": "b99ca7d5b3848807fb4dbffcb4cb1a1fbf5a5d563de86af0b4af2ba484db5d35",
+      "bytes": 21055
     }
   ]
 }

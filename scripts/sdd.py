@@ -188,7 +188,9 @@ def inventory_paths() -> list[Path]:
         for base in (ROOT / "contracts/locks", ROOT / "docs")
         if base.exists()
         for path in base.rglob("*")
-        if path.is_file() and "__pycache__" not in path.parts
+        if path.is_file()
+        and path.name != ".DS_Store"
+        and "__pycache__" not in path.parts
     ]
     return sorted(set(fixed + dynamic), key=lambda path: path.relative_to(ROOT).as_posix())
 
