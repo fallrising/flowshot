@@ -831,6 +831,7 @@ name = "flowshot-xtask"
 version = "0.1.0"
 dependencies = [
  "flowshot-core",
+ "serde",
  "serde_json",
  "sha2 0.11.0",
  "ts-rs",

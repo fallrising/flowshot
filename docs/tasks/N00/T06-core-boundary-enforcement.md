@@ -3,7 +3,7 @@ document_type: task
 id: T06
 node_id: N00
 title: Enforce the core dependency boundary
-status: todo
+status: done
 depends_on:
   - T02
   - T04
@@ -75,7 +75,6 @@ name-only check that ignores transitive dependencies.
 ## Handoff
 
 - Changed files: xtask boundary implementation/tests.
-- Evidence: positive and negative test output.
+- Evidence: `evidence/T06-core-boundary.md`.
 - Risks: policy updates must be deliberate as dependencies grow.
 - Next task: T07.
-
