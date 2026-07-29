@@ -40,7 +40,7 @@ b6c2a83e196b2970b7af130d383b5f2c486533f7d33c74a7d5ff1242068271ea  docs/tasks/N00
 e0be475e4a2fe8c7c7a543c81d8a1ae1f62129668f7e9714c746c01655b4740b  docs/tasks/N00/T04-contract-source-and-generator.md
 42bc339b1909292e1e3e6e84cb80625662d833ff69c8f82ee3d148f75805bf8c  docs/tasks/N00/T05-build-info-vertical-slice.md
 6afc12393338c82e6a3d27abf0466c2e295f2f26c3dd4865255bd7d336e06a82  docs/tasks/N00/T06-core-boundary-enforcement.md
-1d6bd1fb8d1e7db3615e8eb1873eb491a20afb40e564c6369f61c9c68f729271  docs/tasks/N00/T07-make-and-ci.md
+d2cc89a29fe0ee9deba0754af62ebe3e6fe085d174bea7272cf4bed9e37b8268  docs/tasks/N00/T07-make-and-ci.md
 6df76e9837c772797976b69c3c28b953b265762f44fd206d99d7f61285f9744b  docs/tasks/N00/T08-bootstrap-verification.md
 4b2fc9197cc2930561296c1a4dc3144ea5c649e57a288315e4f8beb6dbd11ae6  docs/tasks/N00/evidence/T01-toolchain.md
 a0411b283d7763f6810dd47d2fc3534f837e31607fc432f8a68b6182c70087b4  docs/tasks/N00/evidence/T02-rust-workspace.md
@@ -48,6 +48,7 @@ feada75878a501052744c457a0039883e0c01d957319110d28eb8177ea4bfe3f  docs/tasks/N00
 54c54bb39a67f6d11013c057b6eab3dcd3806f6e8fc7922309ccb189b3ae5111  docs/tasks/N00/evidence/T04-contract-generator.md
 0bc9774a1ba7ed9b4d19f405ce1fd4a7b08a59e8d2d08eea83350e465e6738af  docs/tasks/N00/evidence/T05-build-info-slice.md
 6afcc177915ed790157b1e6da7f4910cf854d3b0bb4576cea5f857615c559abd  docs/tasks/N00/evidence/T06-core-boundary.md
+ea9864951ec9aebee6981b4b7f3270d7176015ef0e4da623b537a7580da6177c  docs/tasks/N00/evidence/T07-make-and-ci.md
 4f68848f6e7366d14d877bdd0056143a5f29ec1dfcc61e7e31693b2113eb7e8d  docs/tasks/README.md
 91bd749ee02695877e09f0aca69cfe04d2cfc68e25552d4c6321e5838022429d  docs/templates/adr.template.md
 5fc879d82adf4a2d2934e8a977520389fdb8be349fcf5843285050d70c8b428b  docs/templates/implementation-plan.template.md

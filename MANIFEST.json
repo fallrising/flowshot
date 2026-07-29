@@ -217,8 +217,8 @@
     },
     {
       "path": "docs/tasks/N00/T07-make-and-ci.md",
-      "sha256": "1d6bd1fb8d1e7db3615e8eb1873eb491a20afb40e564c6369f61c9c68f729271",
-      "bytes": 2249
+      "sha256": "d2cc89a29fe0ee9deba0754af62ebe3e6fe085d174bea7272cf4bed9e37b8268",
+      "bytes": 2234
     },
     {
       "path": "docs/tasks/N00/T08-bootstrap-verification.md",
@@ -254,6 +254,11 @@
       "path": "docs/tasks/N00/evidence/T06-core-boundary.md",
       "sha256": "6afcc177915ed790157b1e6da7f4910cf854d3b0bb4576cea5f857615c559abd",
       "bytes": 1845
+    },
+    {
+      "path": "docs/tasks/N00/evidence/T07-make-and-ci.md",
+      "sha256": "ea9864951ec9aebee6981b4b7f3270d7176015ef0e4da623b537a7580da6177c",
+      "bytes": 2908
     },
     {
       "path": "docs/tasks/README.md",

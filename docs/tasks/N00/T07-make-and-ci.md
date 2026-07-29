@@ -3,7 +3,7 @@ document_type: task
 id: T07
 node_id: N00
 title: Establish Make and CI gates
-status: todo
+status: done
 depends_on:
   - T05
   - T06
@@ -78,7 +78,6 @@ five bootstrap commands, or claim that unavailable GUI E2E runs in sandbox CI.
 ## Handoff
 
 - Changed files: Makefile, workflows, package scripts, README.
-- Evidence: clean bootstrap/CI output and Actions links.
+- Evidence: `evidence/T07-make-and-ci.md`.
 - Risks: target-Mac interactive timing remains T08.
 - Next task: T08.
-
