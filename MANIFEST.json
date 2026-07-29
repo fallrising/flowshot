@@ -202,8 +202,8 @@
     },
     {
       "path": "docs/tasks/N00/T03-scaffold-react-tauri.md",
-      "sha256": "aa7e4f9ff057f202413d0f9e938003b57d1e6232ce40cfa4efbf302df3407f19",
-      "bytes": 2179
+      "sha256": "91c0e570ec67cd5d0d4eb0a5b04097d1af0e0dea8544df1c28dd1cbfc4827cff",
+      "bytes": 2170
     },
     {
       "path": "docs/tasks/N00/T04-contract-source-and-generator.md",
@@ -239,6 +239,11 @@
       "path": "docs/tasks/N00/evidence/T02-rust-workspace.md",
       "sha256": "a0411b283d7763f6810dd47d2fc3534f837e31607fc432f8a68b6182c70087b4",
       "bytes": 1285
+    },
+    {
+      "path": "docs/tasks/N00/evidence/T03-react-tauri.md",
+      "sha256": "feada75878a501052744c457a0039883e0c01d957319110d28eb8177ea4bfe3f",
+      "bytes": 2735
     },
     {
       "path": "docs/tasks/README.md",

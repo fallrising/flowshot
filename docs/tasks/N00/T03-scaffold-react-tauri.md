@@ -3,7 +3,7 @@ document_type: task
 id: T03
 node_id: N00
 title: Scaffold React, Vite, and Tauri
-status: todo
+status: done
 depends_on:
   - T01
   - T02
@@ -80,7 +80,6 @@ annotation UI, or legacy command surface.
 ## Handoff
 
 - Changed files: frontend and `src-tauri` scaffold.
-- Evidence: npm test/build and Cargo check output.
+- Evidence: `evidence/T03-react-tauri.md`.
 - Risks: target-macOS launch remains T08 evidence.
 - Next task: T05 after T04.
-

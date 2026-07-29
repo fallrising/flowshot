@@ -1,0 +1,20 @@
+[package]
+name = "flowshot-tauri"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+build = "build.rs"
+
+[lib]
+name = "flowshot_tauri"
+crate-type = ["lib", "cdylib", "staticlib"]
+
+[build-dependencies]
+tauri-build = { version = "=2.6.3", features = [] }
+
+[dependencies]
+flowshot-core = { path = "../crates/core" }
+tauri = { version = "=2.11.5", features = [] }
+
+[lints]
+workspace = true

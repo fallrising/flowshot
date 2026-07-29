@@ -3,6 +3,7 @@ members = [
     "crates/core",
     "crates/db",
     "crates/xtask",
+    "src-tauri",
 ]
 resolver = "3"
 
