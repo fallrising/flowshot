@@ -143,10 +143,23 @@ try {
   });
 
   try {
-    const [completion, window] = await Promise.all([
+    const [commandOutcome, windowOutcome] = await Promise.allSettled([
       waitForCommand(child, output, deadline),
       waitForVisibleWindow(child.pid, deadline),
     ]);
+
+    const failures = [
+      commandOutcome.status === "rejected" &&
+        `command check: ${commandOutcome.reason}`,
+      windowOutcome.status === "rejected" &&
+        `window check: ${windowOutcome.reason}`,
+    ].filter(Boolean);
+    if (failures.length > 0) {
+      throw new Error(failures.join("\n"));
+    }
+
+    const completion = commandOutcome.value;
+    const window = windowOutcome.value;
     const durationMs = Math.round(performance.now() - startedAt);
 
     if (durationMs >= budgetMs) {

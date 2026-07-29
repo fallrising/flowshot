@@ -14,7 +14,8 @@ static NEXT_CORRELATION_ID: AtomicU64 = AtomicU64::new(1);
     clippy::unnecessary_wraps,
     reason = "every frozen command returns Result<Response, AppErrorDto>"
 )]
-pub fn get_build_info(_request: EmptyRequest) -> Result<BuildInfoDto, AppErrorDto> {
+pub fn get_build_info(request: EmptyRequest) -> Result<BuildInfoDto, AppErrorDto> {
+    let _ = request;
     let started_at = Instant::now();
     let correlation_id = next_correlation_id();
     let response = build_info();
