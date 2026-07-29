@@ -3,7 +3,7 @@ document_type: task
 id: T02
 node_id: N00
 title: Scaffold the Rust workspace
-status: todo
+status: done
 depends_on:
   - T01
 derived_from:
@@ -74,7 +74,6 @@ business feature, or contract generation implementation.
 ## Handoff
 
 - Changed files: root Cargo files and `crates/{core,db,xtask}`.
-- Evidence: metadata, format, and test output.
+- Evidence: `evidence/T02-rust-workspace.md`.
 - Risks: adapter crate is added in T03.
 - Next task: T04 after T01.
-

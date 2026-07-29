@@ -197,8 +197,8 @@
     },
     {
       "path": "docs/tasks/N00/T02-scaffold-rust-workspace.md",
-      "sha256": "a41620f100376cea2ce57af96ec4fb64b01a4598da7f56878f89fa285981de85",
-      "bytes": 1997
+      "sha256": "9b10c3685e861c1bbcfa1e2386cb91cf014a5c584442507a24c34a17feab3b53",
+      "bytes": 1995
     },
     {
       "path": "docs/tasks/N00/T03-scaffold-react-tauri.md",
@@ -234,6 +234,11 @@
       "path": "docs/tasks/N00/evidence/T01-toolchain.md",
       "sha256": "4b2fc9197cc2930561296c1a4dc3144ea5c649e57a288315e4f8beb6dbd11ae6",
       "bytes": 3104
+    },
+    {
+      "path": "docs/tasks/N00/evidence/T02-rust-workspace.md",
+      "sha256": "a0411b283d7763f6810dd47d2fc3534f837e31607fc432f8a68b6182c70087b4",
+      "bytes": 1285
     },
     {
       "path": "docs/tasks/README.md",
