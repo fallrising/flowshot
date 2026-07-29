@@ -1,4 +1,5 @@
 use std::{
+    io::{self, Write},
     process,
     sync::atomic::{AtomicU64, Ordering},
     time::Instant,
@@ -20,11 +21,9 @@ pub fn get_build_info(request: EmptyRequest) -> Result<BuildInfoDto, AppErrorDto
     let correlation_id = next_correlation_id();
     let response = build_info();
     let duration_ms = u64::try_from(started_at.elapsed().as_millis()).unwrap_or(u64::MAX);
+    let log = command_completion_log(&response, &correlation_id, duration_ms);
 
-    println!(
-        "{}",
-        command_completion_log(&response, &correlation_id, duration_ms)
-    );
+    drop(write_command_completion_log(&log));
 
     Ok(response)
 }
@@ -55,6 +54,13 @@ fn command_completion_log(
         "resultCode": "OK",
         "buildInfo": response,
     })
+}
+
+fn write_command_completion_log(log: &Value) -> io::Result<()> {
+    let stdout = io::stdout();
+    let mut output = stdout.lock();
+    writeln!(output, "{log}")?;
+    output.flush()
 }
 
 #[cfg(test)]
