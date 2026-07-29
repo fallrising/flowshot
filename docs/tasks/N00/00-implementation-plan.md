@@ -127,7 +127,8 @@ graph LR
   T04 --> T06[Core boundary enforcement]
   T05 --> T07[Make and CI]
   T06 --> T07
-  T07 --> T08[Bootstrap verification]
+  T07 --> T08[macOS launch and observability]
+  T08 --> T09[Bootstrap verification]
 ```
 
 ## 8. Ownership
@@ -141,7 +142,8 @@ graph LR
 | T05 | build-info adapter/UI/tests | DB, workspace functionality |
 | T06 | xtask boundary checks and fixtures | dependency contracts |
 | T07 | `Makefile`, package scripts, `.github/**` | product features |
-| T08 | README, N00 verification/metrics/graph | SPEC behavior changes |
+| T08 | build-info adapter log, Mac launch probe, Make/CI | contract or product behavior |
+| T09 | README, N00 verification/metrics/graph | SPEC behavior changes |
 
 One writer owns the branch. No implementation file is shared with another
 active task or agent.
@@ -186,4 +188,3 @@ from the previous Rust source; they are never repaired manually.
 - [ ] `make bootstrap && make ci` passes from a clean checkout.
 - [ ] macOS 13+ minimal-window launch evidence exists.
 - [ ] N00 verification report and G2 outcome are committed.
-

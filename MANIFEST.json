@@ -177,53 +177,58 @@
     },
     {
       "path": "docs/tasks/N00/00-implementation-plan.md",
-      "sha256": "17652c931ccc39d69475aa28e030221dbd933aa40405f062cc86fdd8c883875c",
-      "bytes": 8593
+      "sha256": "4d44223fb500c353bcb5afa90669531d519a35d5c2d45247a37df5c733838c41",
+      "bytes": 8729
     },
     {
       "path": "docs/tasks/N00/01-test-plan.md",
-      "sha256": "b6c2a83e196b2970b7af130d383b5f2c486533f7d33c74a7d5ff1242068271ea",
+      "sha256": "9e882c98fc013b9f606c70b1658f0b82fabc8a938efab42bc3b56b5865a1028a",
       "bytes": 4627
     },
     {
       "path": "docs/tasks/N00/T01-toolchain-and-red-baseline.md",
-      "sha256": "1c0cdcf8cfa6f1116e8e7a870861ebd31a70e7e082668bf08d1acf792a6673a2",
+      "sha256": "f56a335926a7295e3b61ec434edea4c2f726fe957d2a3b338a35295f671dcc0a",
       "bytes": 2385
     },
     {
       "path": "docs/tasks/N00/T02-scaffold-rust-workspace.md",
-      "sha256": "9b10c3685e861c1bbcfa1e2386cb91cf014a5c584442507a24c34a17feab3b53",
+      "sha256": "54d3dceab97178d7f800a305aa4830285595f5bce467c6cceac055f16c9011c2",
       "bytes": 1995
     },
     {
       "path": "docs/tasks/N00/T03-scaffold-react-tauri.md",
-      "sha256": "91c0e570ec67cd5d0d4eb0a5b04097d1af0e0dea8544df1c28dd1cbfc4827cff",
+      "sha256": "91d1adec01ae054b4539d32319297cbc24a2bbc5571b0d07147e18ea53fd01d9",
       "bytes": 2170
     },
     {
       "path": "docs/tasks/N00/T04-contract-source-and-generator.md",
-      "sha256": "e0be475e4a2fe8c7c7a543c81d8a1ae1f62129668f7e9714c746c01655b4740b",
+      "sha256": "88c385f12497e7beec654e2e70d272e5cab40ad6165d1aef53c315c539f643ca",
       "bytes": 2465
     },
     {
       "path": "docs/tasks/N00/T05-build-info-vertical-slice.md",
-      "sha256": "42bc339b1909292e1e3e6e84cb80625662d833ff69c8f82ee3d148f75805bf8c",
+      "sha256": "bbfe3f38f1075f60e6564787bb2911cfd2041f6bb0c61946375afe94bb6e01fb",
       "bytes": 2209
     },
     {
       "path": "docs/tasks/N00/T06-core-boundary-enforcement.md",
-      "sha256": "6afc12393338c82e6a3d27abf0466c2e295f2f26c3dd4865255bd7d336e06a82",
+      "sha256": "a9b6e575e0bdd00d19bdd947e04da33131b22535b3becd4d90035e113348a701",
       "bytes": 2130
     },
     {
       "path": "docs/tasks/N00/T07-make-and-ci.md",
-      "sha256": "d2cc89a29fe0ee9deba0754af62ebe3e6fe085d174bea7272cf4bed9e37b8268",
+      "sha256": "bb77d20152749537f17be24db32091f0794035247e3c4c72af38ddf15686077f",
       "bytes": 2234
     },
     {
-      "path": "docs/tasks/N00/T08-bootstrap-verification.md",
-      "sha256": "6df76e9837c772797976b69c3c28b953b265762f44fd206d99d7f61285f9744b",
-      "bytes": 2538
+      "path": "docs/tasks/N00/T08-macos-launch-observability.md",
+      "sha256": "043c4433c875db72b865fc9a95afe556673fca18e776f03e43bb57c9e152fc65",
+      "bytes": 3158
+    },
+    {
+      "path": "docs/tasks/N00/T09-bootstrap-verification.md",
+      "sha256": "5f175684d0e55594f4e36a95989cad5af80efbb0bbae3c2af650d80f17f191a0",
+      "bytes": 2597
     },
     {
       "path": "docs/tasks/N00/evidence/T01-toolchain.md",
