@@ -332,6 +332,148 @@ def validate_links() -> None:
                 )
 
 
+def validate_node_index(graph_nodes: dict[str, dict[str, Any]]) -> None:
+    index_path = ROOT / "docs/nodes/README.md"
+    indexed: dict[str, dict[str, Any]] = {}
+    for line in index_path.read_text(encoding="utf-8").splitlines():
+        cells = [cell.strip() for cell in line.split("|")]
+        if len(cells) < 7 or not NODE_ID.fullmatch(cells[1]):
+            continue
+        dependencies = [] if cells[4] == "—" else [
+            dependency.strip() for dependency in cells[4].split(",")
+        ]
+        indexed[cells[1]] = {
+            "milestone": cells[2],
+            "size": cells[3],
+            "depends_on": dependencies,
+            "status": cells[5],
+        }
+
+    if set(indexed) != set(graph_nodes):
+        raise VerificationError("docs/nodes/README.md: node ID set is stale")
+    for node_id, entry in indexed.items():
+        graph_node = graph_nodes[node_id]
+        for field in ("milestone", "size", "depends_on", "status"):
+            if entry[field] != graph_node.get(field):
+                raise VerificationError(
+                    f"docs/nodes/README.md: {node_id} {field} is stale"
+                )
+
+
+def declared_hash(path: Path, key: str) -> str | None:
+    pattern = re.compile(rf"^\s+{re.escape(key)}:\s*([0-9a-f]{{64}})\s*$", re.MULTILINE)
+    match = pattern.search(path.read_text(encoding="utf-8"))
+    return match.group(1) if match else None
+
+
+def validate_n00_artifacts(metadata: dict[str, str], spec_hash: str) -> None:
+    task_dir = ROOT / "docs/tasks/N00"
+    plan_path = task_dir / "00-implementation-plan.md"
+    test_plan_path = task_dir / "01-test-plan.md"
+    lock_path = ROOT / "contracts/locks/N00.json"
+    present = [path.exists() for path in (plan_path, test_plan_path, lock_path)]
+    if not any(present):
+        return
+    if not all(present):
+        raise VerificationError("N00 planning artifacts are incomplete")
+
+    node_path = ROOT / "docs/nodes/N00-foundation-ci-contracts.md"
+    node_hash = sha256_file(node_path)
+    plan_hash = sha256_file(plan_path)
+    test_plan_hash = sha256_file(test_plan_path)
+
+    for path, expected_type in (
+        (plan_path, "implementation-plan"),
+        (test_plan_path, "test-plan"),
+    ):
+        metadata_ = frontmatter(path)
+        if metadata_.get("document_type") != expected_type:
+            raise VerificationError(f"{path.relative_to(ROOT)}: invalid document_type")
+        if metadata_.get("node_id") != "N00":
+            raise VerificationError(f"{path.relative_to(ROOT)}: invalid node_id")
+        if metadata_.get("source_version") != metadata["version"]:
+            raise VerificationError(f"{path.relative_to(ROOT)}: stale source_version")
+        if declared_hash(path, "SPEC.md") != spec_hash:
+            raise VerificationError(f"{path.relative_to(ROOT)}: stale SPEC hash")
+        if declared_hash(path, "N00") != node_hash:
+            raise VerificationError(f"{path.relative_to(ROOT)}: stale N00 hash")
+        for source in metadata_.get("derived_from", []):
+            if not (path.parent / source).resolve().exists():
+                raise VerificationError(
+                    f"{path.relative_to(ROOT)}: missing derived source {source}"
+                )
+
+    if declared_hash(test_plan_path, "plan") != plan_hash:
+        raise VerificationError("N00 test plan has a stale implementation-plan hash")
+
+    task_files = sorted(task_dir.glob("T[0-9][0-9]-*.md"))
+    if not task_files:
+        raise VerificationError("N00 has no executable task cards")
+    task_cards: dict[str, dict[str, Any]] = {}
+    for path in task_files:
+        card = frontmatter(path)
+        task_id = str(card.get("id", ""))
+        if not re.fullmatch(r"T\d{2}", task_id):
+            raise VerificationError(f"{path.relative_to(ROOT)}: invalid task ID")
+        if not path.name.startswith(f"{task_id}-"):
+            raise VerificationError(f"{path.relative_to(ROOT)}: filename/ID mismatch")
+        if task_id in task_cards:
+            raise VerificationError(f"N00 duplicate task ID: {task_id}")
+        if card.get("document_type") != "task" or card.get("node_id") != "N00":
+            raise VerificationError(f"{path.relative_to(ROOT)}: invalid task front matter")
+        if card.get("source_version") != metadata["version"]:
+            raise VerificationError(f"{path.relative_to(ROOT)}: stale source_version")
+        if not card.get("allowed_paths") or not card.get("forbidden_paths"):
+            raise VerificationError(f"{path.relative_to(ROOT)}: missing ownership")
+        if declared_hash(path, "SPEC.md") != spec_hash:
+            raise VerificationError(f"{path.relative_to(ROOT)}: stale SPEC hash")
+        if declared_hash(path, "N00") != node_hash:
+            raise VerificationError(f"{path.relative_to(ROOT)}: stale N00 hash")
+        if declared_hash(path, "plan") != plan_hash:
+            raise VerificationError(f"{path.relative_to(ROOT)}: stale plan hash")
+        if declared_hash(path, "test_plan") != test_plan_hash:
+            raise VerificationError(f"{path.relative_to(ROOT)}: stale test-plan hash")
+        for source in card.get("derived_from", []):
+            if not (path.parent / source).resolve().exists():
+                raise VerificationError(
+                    f"{path.relative_to(ROOT)}: missing derived source {source}"
+                )
+        task_cards[task_id] = {"path": path, **card}
+
+    visiting: set[str] = set()
+    visited: set[str] = set()
+
+    def visit(task_id: str) -> None:
+        if task_id in visiting:
+            raise VerificationError(f"N00 task cycle includes {task_id}")
+        if task_id in visited:
+            return
+        visiting.add(task_id)
+        for dependency in task_cards[task_id].get("depends_on", []):
+            if dependency not in task_cards:
+                raise VerificationError(f"{task_id}: unknown task dependency {dependency}")
+            visit(dependency)
+        visiting.remove(task_id)
+        visited.add(task_id)
+
+    for task_id in sorted(task_cards):
+        visit(task_id)
+
+    lock = json.loads(lock_path.read_text(encoding="utf-8"))
+    if lock.get("node_id") != "N00" or lock.get("spec_version") != metadata["version"]:
+        raise VerificationError("contracts/locks/N00.json: invalid identity/version")
+    if lock.get("spec_sha256") != spec_hash:
+        raise VerificationError("contracts/locks/N00.json: stale SPEC hash")
+    if lock.get("commands") != ["get_build_info"]:
+        raise VerificationError("contracts/locks/N00.json: unexpected command surface")
+    if lock.get("status") == "frozen":
+        for key in ("source_sha256", "generator_version", "frozen_at"):
+            if not lock.get(key):
+                raise VerificationError(f"frozen N00 lock is missing {key}")
+    elif lock.get("status") != "planned":
+        raise VerificationError("N00 lock status must be planned or frozen")
+
+
 def verify_integrity(metadata: dict[str, str], spec_hash: str) -> None:
     expected_entries = inventory()
     expected_by_path = {entry["path"]: entry for entry in expected_entries}
@@ -377,8 +519,10 @@ def generate() -> None:
 def verify() -> None:
     metadata = spec_metadata()
     spec_hash = sha256_file(ROOT / "SPEC.md")
-    validate_graph(metadata, spec_hash)
+    _, graph_nodes = validate_graph(metadata, spec_hash)
+    validate_node_index(graph_nodes)
     validate_links()
+    validate_n00_artifacts(metadata, spec_hash)
     verify_integrity(metadata, spec_hash)
     print("SDD verification passed")
 

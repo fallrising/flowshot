@@ -27,8 +27,13 @@
     },
     {
       "path": "contracts/README.md",
-      "sha256": "b0e239acf71cbf80f96112fe3cfe50ac50769ff7fbd27ecd6a3437366d18e713",
-      "bytes": 837
+      "sha256": "5bdddaa01579e6d76a04d3e176ad2b435cb32bc139a80aa373c3c1d9d14b67c2",
+      "bytes": 1281
+    },
+    {
+      "path": "contracts/locks/N00.json",
+      "sha256": "f2a51c5c7d65f6ee4441430381159fbcfce6e37b5fe7cb882d400bb7e2b75493",
+      "bytes": 494
     },
     {
       "path": "docs/.DS_Store",
@@ -47,8 +52,8 @@
     },
     {
       "path": "docs/graph.yaml",
-      "sha256": "49e4ba304bd54590f87b3ff3a16943d7ff251a7ed1fb2b1398dd90fa32b16363",
-      "bytes": 6650
+      "sha256": "0a3cbb28bc9794b1e624ef283bed6c61fd127c6d0284f014c53605e4e821cfd0",
+      "bytes": 6655
     },
     {
       "path": "docs/metrics/README.md",
@@ -102,8 +107,8 @@
     },
     {
       "path": "docs/nodes/N00-foundation-ci-contracts.md",
-      "sha256": "0ccff5c8b043c6c291d13c90d928b33260011ebc9d385d02d92758dedc632dc6",
-      "bytes": 5286
+      "sha256": "91031b64ad8c48d1fbfd65e5869888ab99352e01696d7bac4b5550710fd3ab13",
+      "bytes": 5291
     },
     {
       "path": "docs/nodes/N01-sqlite-schema-migrations.md",
@@ -157,8 +162,8 @@
     },
     {
       "path": "docs/nodes/README.md",
-      "sha256": "892566ec5d2ff71845fb6d1d4981ebdada1014835dc063b84b2aa190ac28b91b",
-      "bytes": 1822
+      "sha256": "09e7815a4796df2be2f0c3d376bcfbeac8c88a5c77842b58411adb1452d47002",
+      "bytes": 1827
     },
     {
       "path": "docs/protocols/document-change-control.md",
@@ -172,8 +177,58 @@
     },
     {
       "path": "docs/reference/complete-sdd.md",
-      "sha256": "5994fdf7fc468baf4883e1bbe997b92d2d968257e6ee18d85ecd531dd14054d4",
-      "bytes": 154049
+      "sha256": "68ea55505a56eab982cb97a1c197b726e6366c87d33463de75d377fac424aaef",
+      "bytes": 154059
+    },
+    {
+      "path": "docs/tasks/N00/00-implementation-plan.md",
+      "sha256": "17652c931ccc39d69475aa28e030221dbd933aa40405f062cc86fdd8c883875c",
+      "bytes": 8593
+    },
+    {
+      "path": "docs/tasks/N00/01-test-plan.md",
+      "sha256": "b6c2a83e196b2970b7af130d383b5f2c486533f7d33c74a7d5ff1242068271ea",
+      "bytes": 4627
+    },
+    {
+      "path": "docs/tasks/N00/T01-toolchain-and-red-baseline.md",
+      "sha256": "366a5bfb480ac3ac74354e5a574842b38c51ad855a6ccad7f2be660437c67ed7",
+      "bytes": 2365
+    },
+    {
+      "path": "docs/tasks/N00/T02-scaffold-rust-workspace.md",
+      "sha256": "a41620f100376cea2ce57af96ec4fb64b01a4598da7f56878f89fa285981de85",
+      "bytes": 1997
+    },
+    {
+      "path": "docs/tasks/N00/T03-scaffold-react-tauri.md",
+      "sha256": "aa7e4f9ff057f202413d0f9e938003b57d1e6232ce40cfa4efbf302df3407f19",
+      "bytes": 2179
+    },
+    {
+      "path": "docs/tasks/N00/T04-contract-source-and-generator.md",
+      "sha256": "93f7e489c5456843ab343ad55d62fccd6b85813640b5580b393734960ee5c870",
+      "bytes": 2475
+    },
+    {
+      "path": "docs/tasks/N00/T05-build-info-vertical-slice.md",
+      "sha256": "77aa9253a40608901ebf3ad1643d412cb407bc993aebba1360d1386925f54d47",
+      "bytes": 2207
+    },
+    {
+      "path": "docs/tasks/N00/T06-core-boundary-enforcement.md",
+      "sha256": "b027eaa117f199802c1f82b32b8d8f528d255297fbbf29ced4afcdee0d9de19b",
+      "bytes": 2133
+    },
+    {
+      "path": "docs/tasks/N00/T07-make-and-ci.md",
+      "sha256": "1d6bd1fb8d1e7db3615e8eb1873eb491a20afb40e564c6369f61c9c68f729271",
+      "bytes": 2249
+    },
+    {
+      "path": "docs/tasks/N00/T08-bootstrap-verification.md",
+      "sha256": "6df76e9837c772797976b69c3c28b953b265762f44fd206d99d7f61285f9744b",
+      "bytes": 2538
     },
     {
       "path": "docs/tasks/README.md",
@@ -227,8 +282,8 @@
     },
     {
       "path": "scripts/sdd.py",
-      "sha256": "1ee3954883e52830390cb0bc644b5ecb4e520b5907081992dbe3042c1f111fe1",
-      "bytes": 14047
+      "sha256": "62289f5f8f9c867c62a9eb303ab2e89d2f424f98e49de80f0ec9f34d376ecffb",
+      "bytes": 21010
     }
   ]
 }

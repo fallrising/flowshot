@@ -1140,7 +1140,7 @@ nodes:
     milestone: M0
     depends_on: []
     size: M
-    status: ready
+    status: specifying
     spec: docs/nodes/N00-foundation-ci-contracts.md
     contract_lock: contracts/locks/N00.json
     verification: docs/verification/N00.md
@@ -2765,7 +2765,7 @@ id: N00
 title: 專案骨架、CI 與 Contract Pipeline
 kind: core
 milestone: M0
-status: ready
+status: specifying
 depends_on: []
 size: M
 revision: 1
