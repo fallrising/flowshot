@@ -7,7 +7,7 @@ afterEach(cleanup);
 
 describe("App", () => {
   it("renders the accessible Flowshot foundation shell", () => {
-    render(<App />);
+    render(<App loadBuildInfo={() => new Promise(() => undefined)} />);
 
     expect(
       screen.getByRole("heading", { level: 1, name: "Flowshot" }),
@@ -15,7 +15,7 @@ describe("App", () => {
     expect(
       screen.getByRole("heading", {
         level: 2,
-        name: "Foundation in progress",
+        name: "Connecting to the desktop core",
       }),
     ).toBeTruthy();
   });

@@ -89,3 +89,38 @@ h1 {
   color: #6c7468;
   font-size: 0.9rem;
 }
+
+.build-details {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0 0;
+}
+
+.build-details div {
+  min-width: 0;
+}
+
+.build-details dt {
+  margin-bottom: 0.2rem;
+  color: #6c7468;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.build-details dd {
+  overflow: hidden;
+  margin: 0;
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: 0.84rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 36rem) {
+  .build-details {
+    grid-template-columns: 1fr;
+  }
+}

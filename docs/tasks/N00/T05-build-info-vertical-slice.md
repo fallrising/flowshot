@@ -3,7 +3,7 @@ document_type: task
 id: T05
 node_id: N00
 title: Complete the build-info vertical slice
-status: todo
+status: done
 depends_on:
   - T03
   - T04
@@ -75,7 +75,6 @@ remote request, or generated-file hand edit.
 ## Handoff
 
 - Changed files: build-info adapter and frontend consumer.
-- Evidence: Rust/TS integration test output.
+- Evidence: `evidence/T05-build-info-slice.md`.
 - Risks: full repository gate awaits T07.
 - Next task: T07 after T06.
-
