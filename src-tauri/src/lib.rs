@@ -1,5 +1,10 @@
 mod commands;
 
+/// Runs the Flowshot desktop application.
+///
+/// # Panics
+///
+/// Panics if Tauri cannot initialize or run the native application.
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
