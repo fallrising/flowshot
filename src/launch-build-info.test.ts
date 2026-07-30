@@ -17,6 +17,7 @@ const BUILD_INFO: BuildInfoDto = {
 beforeEach(() => {
   vi.resetModules();
   getBuildInfo.mockReset();
+  delete window.__FLOWSHOT_BUILD_INFO_PROMISE__;
 });
 
 describe("launch build information", () => {
@@ -27,6 +28,17 @@ describe("launch build information", () => {
     const { loadBuildInfoAtLaunch } = await import("./launch-build-info");
 
     expect(getBuildInfo).toHaveBeenCalledOnce();
+    expect(loadBuildInfoAtLaunch()).toBe(response);
+    await expect(loadBuildInfoAtLaunch()).resolves.toEqual(BUILD_INFO);
+  });
+
+  it("reuses the document-start command when Tauri injected it", async () => {
+    const response = Promise.resolve(BUILD_INFO);
+    window.__FLOWSHOT_BUILD_INFO_PROMISE__ = response;
+
+    const { loadBuildInfoAtLaunch } = await import("./launch-build-info");
+
+    expect(getBuildInfo).not.toHaveBeenCalled();
     expect(loadBuildInfoAtLaunch()).toBe(response);
     await expect(loadBuildInfoAtLaunch()).resolves.toEqual(BUILD_INFO);
   });

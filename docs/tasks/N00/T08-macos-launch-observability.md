@@ -31,6 +31,7 @@ allowed_paths:
   - src/launch-build-info.test.ts
   - src-tauri/Cargo.toml
   - src-tauri/src/commands/build_info.rs
+  - src-tauri/src/lib.rs
   - docs/tasks/N00/**
 forbidden_paths:
   - crates/core/src/contracts/**
@@ -87,6 +88,9 @@ visible-window launch.
    process output, and a best-effort screenshot for diagnosis.
 9. If diagnostics prove frontend module startup is on the critical path,
    invoke the frozen build-info command before importing and rendering React.
+10. If the split entry still starts after the acceptance boundary, invoke the
+    same frozen command from Tauri's WebView document-start initialization
+    script and let the typed frontend adapter consume that promise.
 
 ## 首個失敗測試
 

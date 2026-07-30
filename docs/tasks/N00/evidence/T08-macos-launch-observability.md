@@ -163,3 +163,22 @@ The entry is now split at a dynamic import:
 `scripts/check-launch-entry.mjs` makes this production-artifact property a
 repository gate by requiring the typed command name in an entry smaller than
 20000 bytes.
+
+### Split-entry attempt
+
+[Run 14](https://github.com/fallrising/flowshot/actions/runs/30524066834)
+passed every Ubuntu gate, including the Tauri mock IPC test, strict Clippy, and
+the 2319-byte production-entry check. Apple Silicon still reported:
+
+| Signal | Observed |
+| --- | ---: |
+| On-screen window | 1185 ms |
+| Command completion | 2380 ms |
+
+The window met the product budget while the small entry did not execute the
+IPC in time. This excludes React parsing and the former monolithic bundle as
+the remaining Apple Silicon boundary. The next focused attempt moves the same
+frozen `{ "request": {} }` invocation to Tauri's WebView document-start
+initialization script. That script runs in the WebView after Tauri installs
+its invoke runtime but before HTML parsing; the typed frontend adapter consumes
+the injected promise and retains its generated-wrapper fallback.

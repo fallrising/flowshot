@@ -10,6 +10,19 @@ use serde_json::{Value, json};
 
 static NEXT_CORRELATION_ID: AtomicU64 = AtomicU64::new(1);
 
+pub(crate) const BUILD_INFO_INITIALIZATION_SCRIPT: &str = r#";
+(() => {
+  const promise = window.__TAURI_INTERNALS__.invoke(
+    "get_build_info",
+    { request: {} }
+  );
+  void promise.catch(() => undefined);
+  Object.defineProperty(window, "__FLOWSHOT_BUILD_INFO_PROMISE__", {
+    value: promise
+  });
+})();
+"#;
+
 #[tauri::command]
 #[allow(
     clippy::unnecessary_wraps,
@@ -96,6 +109,13 @@ mod tests {
             value["buildInfo"]["buildProfile"],
             env!("FLOWSHOT_BUILD_PROFILE")
         );
+    }
+
+    #[test]
+    fn document_start_script_uses_the_frozen_command_and_payload() {
+        assert!(BUILD_INFO_INITIALIZATION_SCRIPT.contains("\"get_build_info\""));
+        assert!(BUILD_INFO_INITIALIZATION_SCRIPT.contains("{ request: {} }"));
+        assert!(BUILD_INFO_INITIALIZATION_SCRIPT.contains("__FLOWSHOT_BUILD_INFO_PROMISE__"));
     }
 
     #[test]
