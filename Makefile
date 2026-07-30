@@ -9,8 +9,8 @@ NPM ?= npm
 PYTHON ?= python3
 
 .PHONY: help bootstrap gen-contracts check-contracts check-boundaries \
-	verify-sdd rust-ci frontend-ci native-ci macos-launch-smoke-test \
-	macos-launch-smoke \
+	verify-sdd rust-ci frontend-ci check-launch-entry native-ci \
+	macos-launch-smoke-test macos-launch-smoke \
 	native-if-supported ci
 
 help:
@@ -18,6 +18,7 @@ help:
 	@echo "  make bootstrap       Install locked JavaScript and Rust dependencies"
 	@echo "  make gen-contracts   Generate TypeScript contracts from Rust"
 	@echo "  make check-contracts Verify deterministic contracts and frozen lock"
+	@echo "  make check-launch-entry  Verify IPC starts before the React chunk"
 	@echo "  make macos-launch-smoke-test  Test launch-probe timing logic"
 	@echo "  make macos-launch-smoke  Prove a visible release window starts in budget"
 	@echo "  make ci              Run every gate supported by this host"
@@ -47,6 +48,10 @@ frontend-ci:
 	$(NPM) run lint
 	$(NPM) run test
 	$(NPM) run build
+	$(MAKE) check-launch-entry
+
+check-launch-entry:
+	$(NODE) scripts/check-launch-entry.mjs
 
 native-ci:
 	$(CARGO) test -p flowshot-tauri

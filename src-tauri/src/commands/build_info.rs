@@ -104,7 +104,7 @@ mod tests {
             .invoke_handler(tauri::generate_handler![get_build_info])
             .build(tauri::test::mock_context(tauri::test::noop_assets()))
             .expect("mock Tauri app should build");
-        let webview = tauri::WebviewWindowBuilder::new(&app, "main", Default::default())
+        let webview = tauri::WebviewWindowBuilder::new(&app, "main", tauri::WebviewUrl::default())
             .build()
             .expect("mock webview should build");
 
@@ -122,7 +122,7 @@ mod tests {
                 .parse()
                 .expect("test URL should parse"),
                 body: json!({ "request": {} }).into(),
-                headers: Default::default(),
+                headers: tauri::http::HeaderMap::default(),
                 invoke_key: tauri::test::INVOKE_KEY.to_string(),
             },
         )

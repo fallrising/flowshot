@@ -222,8 +222,8 @@
     },
     {
       "path": "docs/tasks/N00/T08-macos-launch-observability.md",
-      "sha256": "e0c6a79690b569e47ae0481d72b5368ae32c1b18476f7ef51936537dc24a98f9",
-      "bytes": 3663
+      "sha256": "91f8873c75ba4500f881a72f5701b577a5d7ed33e73c405e3f746c4c0bc9f09c",
+      "bytes": 3733
     },
     {
       "path": "docs/tasks/N00/T09-bootstrap-verification.md",
@@ -267,8 +267,8 @@
     },
     {
       "path": "docs/tasks/N00/evidence/T08-macos-launch-observability.md",
-      "sha256": "b88fde8bd6ebe0aa37cfbf335cae7b8ab87516fe11b01a3817b1b25d940a3646",
-      "bytes": 5862
+      "sha256": "4537bf905fe91f08cb84d670820b60139d78984e7d25fff775a7bad5299480c2",
+      "bytes": 6775
     },
     {
       "path": "docs/tasks/README.md",

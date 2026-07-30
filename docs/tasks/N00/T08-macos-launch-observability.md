@@ -23,7 +23,10 @@ allowed_paths:
   - scripts/macos-launch-smoke.mjs
   - scripts/macos-launch-smoke.node.mjs
   - scripts/macos-window-check.swift
+  - scripts/check-launch-entry.mjs
+  - src/main.ts
   - src/main.tsx
+  - src/render.tsx
   - src/launch-build-info.ts
   - src/launch-build-info.test.ts
   - src-tauri/Cargo.toml

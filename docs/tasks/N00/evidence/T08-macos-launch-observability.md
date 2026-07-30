@@ -142,3 +142,24 @@ The new mock IPC test initially failed to compile because Tauri exposes its
 test utilities behind the dependency's `test` feature. The dev dependency now
 enables that feature; the contract and production Tauri feature set are
 unchanged.
+
+### Eager-entry attempt and bundle split
+
+[Run 13](https://github.com/fallrising/flowshot/actions/runs/30523430894)
+proved that the mock IPC request succeeds on Ubuntu and Apple Silicon. Strict
+Clippy then rejected two generic `Default::default()` calls in the test; those
+are changed to the explicit Tauri URL and header-map types.
+
+The first eager-invocation implementation still produced one 192492-byte
+JavaScript bundle. Apple Silicon consequently reported the window at 1176 ms
+and command completion at 2408 ms. The source-level ordering did not shorten
+the browser parse boundary.
+
+The entry is now split at a dynamic import:
+
+1. a 2319-byte production entry invokes `get_build_info`;
+2. the 191.6-KiB React render chunk loads afterward.
+
+`scripts/check-launch-entry.mjs` makes this production-artifact property a
+repository gate by requiring the typed command name in an entry smaller than
+20000 bytes.
