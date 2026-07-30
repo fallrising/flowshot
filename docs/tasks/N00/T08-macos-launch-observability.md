@@ -91,6 +91,11 @@ visible-window launch.
 10. If the split entry still starts after the acceptance boundary, invoke the
     same frozen command from Tauri's WebView document-start initialization
     script and let the typed frontend adapter consume that promise.
+11. If hosted virtual Macs remain outside the product budget after the focused
+    launch attempts, keep the exact oracle as a non-blocking hosted diagnostic
+    and reserve T08 acceptance for controlled target-Mac evidence. Required
+    hosted CI must still build and test both debug and optimized native
+    application binaries on both architectures.
 
 ## 首個失敗測試
 

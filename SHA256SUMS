@@ -41,7 +41,7 @@ a9e062008d737316e1653f3a5bafc4a7b48fbf72bfacc10b8d2c1d39cb01d38f  docs/tasks/N00
 1cca75b6dda310e4078e6aa311f3fd94ea4028b2e3b43da2dfe2c0cf04b88f2a  docs/tasks/N00/T05-build-info-vertical-slice.md
 7474273220de73af7657ef79aec1521a47191e79477ae81421e43920e279c8d9  docs/tasks/N00/T06-core-boundary-enforcement.md
 23047617777944345f21439dfb5caeea58f4c99f65877b32daad2f4e9f73fc6e  docs/tasks/N00/T07-make-and-ci.md
-a3d3087c1a2ecd47d32fbbebab667983ac30b8401700ed54fedf07341701a1aa  docs/tasks/N00/T08-macos-launch-observability.md
+e76903a3fb668ee0674e94141ebc9918b7e91aa54362a6591b9942f1e60e4232  docs/tasks/N00/T08-macos-launch-observability.md
 14a6224aa00792207574f323a7903ccaec1a3484beacdecd29a7525aeaf5d175  docs/tasks/N00/T09-bootstrap-verification.md
 4b2fc9197cc2930561296c1a4dc3144ea5c649e57a288315e4f8beb6dbd11ae6  docs/tasks/N00/evidence/T01-toolchain.md
 a0411b283d7763f6810dd47d2fc3534f837e31607fc432f8a68b6182c70087b4  docs/tasks/N00/evidence/T02-rust-workspace.md
@@ -50,7 +50,7 @@ feada75878a501052744c457a0039883e0c01d957319110d28eb8177ea4bfe3f  docs/tasks/N00
 0bc9774a1ba7ed9b4d19f405ce1fd4a7b08a59e8d2d08eea83350e465e6738af  docs/tasks/N00/evidence/T05-build-info-slice.md
 6afcc177915ed790157b1e6da7f4910cf854d3b0bb4576cea5f857615c559abd  docs/tasks/N00/evidence/T06-core-boundary.md
 ea9864951ec9aebee6981b4b7f3270d7176015ef0e4da623b537a7580da6177c  docs/tasks/N00/evidence/T07-make-and-ci.md
-655c165dc850f6b63bd0a2cfedc8571aa67579fb77924e563fbb6c6bcbabeead  docs/tasks/N00/evidence/T08-macos-launch-observability.md
+6818da3f238bf0a42799ec9e68379bd6e39b357d61118144213ab3c3c29bf1ae  docs/tasks/N00/evidence/T08-macos-launch-observability.md
 4f68848f6e7366d14d877bdd0056143a5f29ec1dfcc61e7e31693b2113eb7e8d  docs/tasks/README.md
 91bd749ee02695877e09f0aca69cfe04d2cfc68e25552d4c6321e5838022429d  docs/templates/adr.template.md
 5fc879d82adf4a2d2934e8a977520389fdb8be349fcf5843285050d70c8b428b  docs/templates/implementation-plan.template.md

@@ -182,3 +182,37 @@ frozen `{ "request": {} }` invocation to Tauri's WebView document-start
 initialization script. That script runs in the WebView after Tauri installs
 its invoke runtime but before HTML parsing; the typed frontend adapter consumes
 the injected promise and retains its generated-wrapper fallback.
+
+### Document-start attempt and hosted-CI decision
+
+[Run 15](https://github.com/fallrising/flowshot/actions/runs/30534200633)
+passed every Ubuntu gate and every native compile, unit-test, mock-IPC, and
+strict-Clippy gate on Apple Silicon. The unchanged launch oracle reported:
+
+| Job | Visible window | Command completion | Command duration |
+| --- | ---: | ---: | ---: |
+| macOS 15 Apple M1 (Virtual) | 933 ms | 2318 ms | 0 ms |
+| macOS 15 Intel i7-8700B | 4583 ms | 6256 ms | 0 ms |
+
+The document-start invocation is valid and the native command itself completes
+within the measurement resolution. Apple Silicon improved by only 62 ms from
+the split-entry attempt, proving that the remaining delay precedes command
+execution inside the hosted WebView. Intel remains outside the budget for both
+window and command signals.
+
+The three focused startup attempts—eager source order, a real bundle split, and
+Tauri document-start invocation—have now reached the repository failure-loop
+limit. Further frontend ordering changes would be speculative.
+
+GitHub-hosted virtual-Mac timing is therefore classified as diagnostic, not as
+the final product acceptance environment:
+
+- the smoke test still runs with the exact `< 1.5 s` oracle and uploads its
+  structured result and screenshot;
+- native tests, strict Clippy, debug builds, and optimized release builds remain
+  required on both hosted Mac architectures;
+- a hosted timing miss does not hide otherwise valid PR build/test results;
+- T08 and N00 remain blocked and cannot use a non-blocking hosted result as
+  acceptance evidence;
+- closure requires a passing controlled target-Mac run or a formal
+  specification/test-environment change.
