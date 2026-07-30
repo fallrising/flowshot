@@ -36,6 +36,11 @@
       "bytes": 667
     },
     {
+      "path": "contracts/locks/N01.json",
+      "sha256": "4a324f3de4a42807c5dab32b101701cca7b5a1bbefc3bf5f57888b8e8620459c",
+      "bytes": 513
+    },
+    {
       "path": "docs/README.md",
       "sha256": "1fd8f3f5b0df40d01146c7ffb0b0b6366a058394bc1c6ad4b14a460cbc663637",
       "bytes": 963
@@ -269,6 +274,51 @@
       "path": "docs/tasks/N00/evidence/T08-macos-launch-observability.md",
       "sha256": "6818da3f238bf0a42799ec9e68379bd6e39b357d61118144213ab3c3c29bf1ae",
       "bytes": 9343
+    },
+    {
+      "path": "docs/tasks/N01/00-implementation-plan.md",
+      "sha256": "d1e72feb1a8aab1d80873c1890b6e9761cb85463eabf2c19c385bd8100585372",
+      "bytes": 10736
+    },
+    {
+      "path": "docs/tasks/N01/01-test-plan.md",
+      "sha256": "6129ff514d939f8971527e9b215eeaedfa3f6e932b153cd3fead8c5814cb7ccd",
+      "bytes": 10967
+    },
+    {
+      "path": "docs/tasks/N01/T01-migration-runner.md",
+      "sha256": "0139b1f2b065149d3c50b51a8be860c61d0ff07234c4e4f0da4fe2234ca5aeb4",
+      "bytes": 2661
+    },
+    {
+      "path": "docs/tasks/N01/T02-base-schema.md",
+      "sha256": "e32471e259089bfd14fc2395a4301e1830c8a2c24fa3cd79ec2dd002a3c28839",
+      "bytes": 2109
+    },
+    {
+      "path": "docs/tasks/N01/T03-integrity-triggers.md",
+      "sha256": "498427d90c0ddfe42b30b722c5cb37ee42bf6e3bed4a23e53cb91a65768b8a0c",
+      "bytes": 2116
+    },
+    {
+      "path": "docs/tasks/N01/T04-repository-interfaces.md",
+      "sha256": "c62a9e3a4ed19f10ce1426763acad5c44f0def76a6c4af657c8115f8273aee67",
+      "bytes": 2358
+    },
+    {
+      "path": "docs/tasks/N01/T05-soft-delete-semantics.md",
+      "sha256": "32dde333540aa380e94bda5a7f8c9e36d438d4f55dce021854e5c3414d571cd6",
+      "bytes": 2372
+    },
+    {
+      "path": "docs/tasks/N01/T06-db-executor-concurrency-and-row-version.md",
+      "sha256": "42a7edcb1b660cd7f959e20cb400c2cb2b30da197d4d23ecfe6691f94b440b3a",
+      "bytes": 2597
+    },
+    {
+      "path": "docs/tasks/N01/T07-schema-benchmarks.md",
+      "sha256": "93572a7e0d84837ffe6609e2e08fc67cd00f0c32432a9ed5b4eabfe3f5eca396",
+      "bytes": 2565
     },
     {
       "path": "docs/tasks/README.md",
