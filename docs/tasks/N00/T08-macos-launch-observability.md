@@ -19,9 +19,13 @@ owner: codex
 allowed_paths:
   - Makefile
   - .github/**
+  - index.html
   - scripts/macos-launch-smoke.mjs
   - scripts/macos-launch-smoke.node.mjs
   - scripts/macos-window-check.swift
+  - src/main.tsx
+  - src/launch-build-info.ts
+  - src/launch-build-info.test.ts
   - src-tauri/Cargo.toml
   - src-tauri/src/commands/build_info.rs
   - docs/tasks/N00/**
@@ -78,6 +82,8 @@ visible-window launch.
 8. When a hosted run misses the acceptance budget, continue observing for up
    to 15 seconds without changing the result, and upload timestamps, native
    process output, and a best-effort screenshot for diagnosis.
+9. If diagnostics prove frontend module startup is on the critical path,
+   invoke the frozen build-info command before importing and rendering React.
 
 ## 首個失敗測試
 

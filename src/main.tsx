@@ -1,3 +1,4 @@
+import { loadBuildInfoAtLaunch } from "./launch-build-info";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
@@ -11,6 +12,6 @@ if (rootElement === null) {
 
 createRoot(rootElement).render(
   <StrictMode>
-    <App />
+    <App loadBuildInfo={loadBuildInfoAtLaunch} />
   </StrictMode>,
 );

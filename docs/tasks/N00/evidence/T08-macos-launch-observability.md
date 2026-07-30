@@ -119,3 +119,26 @@ The continuation also adds a Tauri mock IPC test for the frozen
 `{ "request": {} }` payload, unit coverage for the timing decision, signal
 timestamps, native stdout/stderr artifacts, and a best-effort macOS screenshot.
 Any signal at or after 1.5 seconds still fails T08.
+
+### Diagnostic run 12
+
+[Run 12](https://github.com/fallrising/flowshot/actions/runs/30516605709)
+proved that both signals eventually arrive and produced screenshots of the
+fully rendered `Foundation ready` state:
+
+| Job | Visible window | Command completion | Acceptance |
+| --- | ---: | ---: | --- |
+| macOS 15 Apple Silicon | 791 ms | 2111 ms | command late by 611 ms |
+| macOS 15 Intel | 7141 ms | 10206 ms | both signals late |
+
+Both screenshots show the release build information in the native Flowshot
+window, eliminating a permanent IPC failure or rendered error state. The Apple
+Silicon result identifies React/module startup before the existing effect as
+an actionable critical path. The next implementation invokes build info in a
+small module loaded before the React entry point, while preserving the same
+typed command and UI error handling.
+
+The new mock IPC test initially failed to compile because Tauri exposes its
+test utilities behind the dependency's `test` feature. The dev dependency now
+enables that feature; the contract and production Tauri feature set are
+unchanged.
