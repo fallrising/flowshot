@@ -20,6 +20,7 @@ allowed_paths:
   - Makefile
   - .github/**
   - scripts/macos-launch-smoke.mjs
+  - scripts/macos-launch-smoke.node.mjs
   - scripts/macos-window-check.swift
   - src-tauri/Cargo.toml
   - src-tauri/src/commands/build_info.rs
@@ -74,6 +75,9 @@ visible-window launch.
    on-screen window owned by the child PID.
 6. Measure spawn-to-command time and fail at `>= 1.5 s`.
 7. Run the same oracle on Apple Silicon and Intel hosted Macs.
+8. When a hosted run misses the acceptance budget, continue observing for up
+   to 15 seconds without changing the result, and upload timestamps, native
+   process output, and a best-effort screenshot for diagnosis.
 
 ## 首個失敗測試
 

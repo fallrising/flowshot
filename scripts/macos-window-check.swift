@@ -16,11 +16,13 @@ for window in windows {
     let ownerPid = (window[kCGWindowOwnerPID as String] as? NSNumber)?.int32Value
     let layer = (window[kCGWindowLayer as String] as? NSNumber)?.intValue
     let alpha = (window[kCGWindowAlpha as String] as? NSNumber)?.doubleValue
+    let windowId = (window[kCGWindowNumber as String] as? NSNumber)?.intValue
     let boundsValue = window[kCGWindowBounds as String] as? NSDictionary
 
     guard ownerPid == requestedPid,
           layer == 0,
           (alpha ?? 0) > 0,
+          let windowId,
           let boundsValue,
           let bounds = CGRect(
               dictionaryRepresentation: boundsValue as CFDictionary
@@ -33,6 +35,7 @@ for window in windows {
 
     let result: [String: Any] = [
         "visible": true,
+        "windowId": windowId,
         "width": Int(bounds.width),
         "height": Int(bounds.height),
     ]

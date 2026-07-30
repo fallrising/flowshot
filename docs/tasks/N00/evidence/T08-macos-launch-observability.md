@@ -104,3 +104,18 @@ authorized step must choose one of:
   change process.
 
 N00 remains blocked and no downstream node is unlocked.
+
+## Authorized diagnostic continuation
+
+The user authorized the first option on 2026-07-30 and supplied an independent
+CI analysis that identified the 1.5-second hosted-runner timeout as the likely
+failure boundary. The diagnostic change deliberately separates two clocks:
+
+- the acceptance budget remains fixed at less than 1.5 seconds;
+- the probe may continue observing for 15 seconds to distinguish a late signal
+  from a signal that never arrives.
+
+The continuation also adds a Tauri mock IPC test for the frozen
+`{ "request": {} }` payload, unit coverage for the timing decision, signal
+timestamps, native stdout/stderr artifacts, and a best-effort macOS screenshot.
+Any signal at or after 1.5 seconds still fails T08.

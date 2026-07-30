@@ -90,4 +90,16 @@ jobs:
         run: make bootstrap
 
       - name: Run repository gate
+        env:
+          FLOWSHOT_LAUNCH_ARTIFACT_DIR: ${{ runner.temp }}/flowshot-launch-diagnostics
+          MACOS_LAUNCH_OBSERVATION_MS: "15000"
         run: make ci
+
+      - name: Upload macOS launch diagnostics
+        if: always()
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: macos-launch-diagnostics-${{ matrix.runner }}
+          path: ${{ runner.temp }}/flowshot-launch-diagnostics
+          if-no-files-found: ignore
+          retention-days: 7

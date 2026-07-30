@@ -4,11 +4,13 @@ SHELL := /bin/bash
 .NOTPARALLEL:
 
 CARGO ?= cargo
+NODE ?= node
 NPM ?= npm
 PYTHON ?= python3
 
 .PHONY: help bootstrap gen-contracts check-contracts check-boundaries \
-	verify-sdd rust-ci frontend-ci native-ci macos-launch-smoke \
+	verify-sdd rust-ci frontend-ci native-ci macos-launch-smoke-test \
+	macos-launch-smoke \
 	native-if-supported ci
 
 help:
@@ -16,6 +18,7 @@ help:
 	@echo "  make bootstrap       Install locked JavaScript and Rust dependencies"
 	@echo "  make gen-contracts   Generate TypeScript contracts from Rust"
 	@echo "  make check-contracts Verify deterministic contracts and frozen lock"
+	@echo "  make macos-launch-smoke-test  Test launch-probe timing logic"
 	@echo "  make macos-launch-smoke  Prove a visible release window starts in budget"
 	@echo "  make ci              Run every gate supported by this host"
 
@@ -50,6 +53,9 @@ native-ci:
 	$(CARGO) clippy -p flowshot-tauri --all-targets -- -D warnings
 	$(NPM) run tauri -- build --debug --no-bundle --ci
 
+macos-launch-smoke-test:
+	$(NODE) --test scripts/macos-launch-smoke.node.mjs
+
 macos-launch-smoke:
 	@if [[ "$$(uname -s)" != "Darwin" ]]; then \
 		echo "macos-launch-smoke: requires macOS"; \
@@ -68,5 +74,6 @@ native-if-supported:
 		echo "native-ci: skipped; install the documented Tauri platform prerequisites"; \
 	fi
 
-ci: verify-sdd check-contracts check-boundaries rust-ci frontend-ci native-if-supported
+ci: verify-sdd check-contracts check-boundaries rust-ci frontend-ci \
+	macos-launch-smoke-test native-if-supported
 	@echo "Flowshot CI passed"

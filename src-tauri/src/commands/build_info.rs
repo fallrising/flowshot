@@ -97,4 +97,41 @@ mod tests {
             env!("FLOWSHOT_BUILD_PROFILE")
         );
     }
+
+    #[test]
+    fn frozen_frontend_payload_reaches_the_tauri_command() {
+        let app = tauri::test::mock_builder()
+            .invoke_handler(tauri::generate_handler![get_build_info])
+            .build(tauri::test::mock_context(tauri::test::noop_assets()))
+            .expect("mock Tauri app should build");
+        let webview = tauri::WebviewWindowBuilder::new(&app, "main", Default::default())
+            .build()
+            .expect("mock webview should build");
+
+        let response = tauri::test::get_ipc_response(
+            &webview,
+            tauri::webview::InvokeRequest {
+                cmd: "get_build_info".into(),
+                callback: tauri::ipc::CallbackFn(0),
+                error: tauri::ipc::CallbackFn(1),
+                url: if cfg!(any(windows, target_os = "android")) {
+                    "http://tauri.localhost"
+                } else {
+                    "tauri://localhost"
+                }
+                .parse()
+                .expect("test URL should parse"),
+                body: json!({ "request": {} }).into(),
+                headers: Default::default(),
+                invoke_key: tauri::test::INVOKE_KEY.to_string(),
+            },
+        )
+        .expect("frozen payload should reach get_build_info")
+        .deserialize::<Value>()
+        .expect("build info response should be JSON");
+
+        assert_eq!(response["version"], env!("CARGO_PKG_VERSION"));
+        assert_eq!(response["gitSha"], env!("FLOWSHOT_GIT_SHA"));
+        assert_eq!(response["buildProfile"], env!("FLOWSHOT_BUILD_PROFILE"));
+    }
 }
