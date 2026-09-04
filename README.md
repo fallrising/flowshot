@@ -1,3 +1,12 @@
+> ## ⚠️ 此 repository 已退役（2026-09-04）
+>
+> 內容已遷移至 [`newclear`](https://github.com/fallrising/newclear) 的 [`apps/flowshot`](https://github.com/fallrising/newclear/tree/main/apps/flowshot)。
+>
+> 本 repository 保留為**唯讀歷史存放地**——完整 git 歷史仍在此處,
+> 但新的開發請至後繼者。
+
+---
+
 # Flowshot
 
 [![CI](https://github.com/fallrising/flowshot/actions/workflows/ci.yml/badge.svg)](https://github.com/fallrising/flowshot/actions/workflows/ci.yml)
